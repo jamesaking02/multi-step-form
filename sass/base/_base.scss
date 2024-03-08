@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+/* Base Styling */
+
+ul {
+  list-style: none;
+
+  li > a {
+    text-decoration: none;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: $background;
+  padding: 1rem;
+}
+
+section {
+  background-color: $card-background;
+  padding: clamp(2rem, 8vw, 3rem);
+}

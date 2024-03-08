@@ -1,0 +1,70 @@
+@use '../utilities' as *;
+@use '../abstracts' as *;
+
+/* Layout Styling */
+
+main {
+  width: fit-content;
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  margin: 0 auto;
+}
+
+section.plan {
+  padding-block-end: 0;
+  border-radius: .5rem .5rem 0 0;
+
+  p {
+    margin-block: 1rem 2rem;
+  }
+  
+  button.plan__upgradeBtn {
+    margin-block-end: 1rem;
+    margin-inline-end: 2rem;
+  }
+}
+
+section.invoices {
+  border-radius: 0 0 .5rem .5rem;
+
+  h2 {
+    margin-block-end: 2rem;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-block: 1.5rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: background-color .2s ease-in-out;
+  }
+
+  li:hover {
+    background-color: $background;
+  }
+
+  a.invoice-dl {    
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+  }
+
+  li:hover > a.invoice-dl {
+    opacity: 1;
+  }
+
+  @include mq($until:small) {
+    li {
+      flex-direction: column;
+      gap: unset;
+      margin-block: 1rem;
+    }
+  }
+
+  li > p.invoice-cost {
+    margin-inline-end: -1rem;
+  }
+}
+

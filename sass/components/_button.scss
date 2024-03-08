@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+/* Button Styling */
+button.plan__upgradeBtn {
+  background-color: $accent;
+  color: $text;
+  padding: .5rem 1.5rem;
+  border-radius: .25rem;
+}
+
+button:hover {
+  scale: .98;
+  opacity: .75;
+}
+
+button:active {
+  scale: .95;
+}
