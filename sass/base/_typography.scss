@@ -5,35 +5,10 @@
 /* Typography */
 body {
   font-family: 'Noto Sans', sans-serif;
-  color: $text;
 }
 
 h1,
 h2 {
   font-family: 'Noto Serif', serif;
   font-size: 1.4rem;
-}
-
-button,
-a.plan__cancelLink {
-  font-size: .9rem;
-}
-
-a.plan__cancelLink {
-  color: slategray;
-}
-
-p.plan__name {
-  font-size: 2rem;
-}
-
-a.invoice-dl {
-  display: block;
-  font-size: .95rem;
-  color: $accent;
-}
-
-a.invoice-dl:active,
-a.plan__cancelLink:active {
-  color: $secondary;
 }
