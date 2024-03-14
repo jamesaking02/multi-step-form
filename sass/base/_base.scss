@@ -1,8 +1,16 @@
 @use '../abstracts' as *;
 
 /* Base Styling */
+:root {
+  @each $color, $hues in $colors {
+    @each $hue, $value in $hues {
+      --clr-#{$color}-#{$hue}: #{$value};
+    }
+  }
+}
 
-ul {
+
+ol {
   list-style: none;
 
   li > a {
@@ -17,11 +25,5 @@ button {
 }
 
 body {
-  background-color: $background;
   padding: 1rem;
-}
-
-section {
-  background-color: $card-background;
-  padding: clamp(2rem, 8vw, 3rem);
 }
