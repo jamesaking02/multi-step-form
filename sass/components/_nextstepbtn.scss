@@ -2,4 +2,25 @@
 
 /* Button Styling */
 
+.form-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline-end: 4rem;
+  margin-block-start: 4rem;
+}
 
+.nextstep {
+  display: flex;
+  background-color: var(--clr-primary-marine-blue);
+  margin-inline-start: auto;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  color: white;
+  font-weight: 500;
+  font-size: .95rem;
+}
+
+.nextstep:hover {
+  opacity: .8;
+}
