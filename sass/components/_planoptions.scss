@@ -1,0 +1,27 @@
+.plan-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+  h2 {
+    font-size: 1rem;
+    margin-block-start: 2rem;
+  }
+
+  .option__price {
+    font-size: .9rem;
+  }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--clr-neutral-light-gray);
+    padding: 1rem;
+  }
+
+  .option.selected {
+    border-color: var(--clr-primary-purplish-blue);
+  }
+}
