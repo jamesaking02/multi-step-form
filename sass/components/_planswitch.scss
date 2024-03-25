@@ -1,5 +1,9 @@
 .plan-switch {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-block: 2rem 8rem;
 
   .switch {
     width: 2rem;
@@ -9,10 +13,28 @@
     background-color: var(--clr-primary-marine-blue);
 
     .switch__circle {
+      pointer-events: none;
       width: .75rem;
       height: .75rem;
       border-radius: 50%;
       background-color: white;
+      transition: transform .3s ease;
     }
+
+    .switch__circle.yearlyplan {
+      transform: translateX(120%);
+      // margin-inline-start: auto;
+    }
+
+  }
+}
+
+@keyframes slide {
+  from {
+    margin-inline-start: unset;
+  }
+
+  to {
+    margin-inline-start: auto;
   }
 }
