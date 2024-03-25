@@ -4,7 +4,7 @@
   gap: 1rem;
   overflow-wrap: break-word;
   hyphens: auto;
-
+  
   h2 {
     font-size: 1rem;
     margin-block-start: 2rem;
@@ -19,9 +19,31 @@
     flex-direction: column;
     border: 1px solid var(--clr-neutral-light-gray);
     padding: 1rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
   }
 
   .option.selected {
     border-color: var(--clr-primary-purplish-blue);
   }
-}
+
+  .yearlydeal {
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    scale: 1 0;
+    pointer-events: none;
+    transition: 
+    opacity .5s ease,
+    scale .3s ease;
+  }
+
+  .yearlydeal.visible {
+    position: unset;
+    opacity: 1;
+    scale: 1;
+    pointer-events: all;
+  }
+} 
