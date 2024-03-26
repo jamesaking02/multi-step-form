@@ -1,4 +1,5 @@
 @use '../abstracts' as *;
+@use '../utilities/' as *;
 
 /* Button Styling */
 
@@ -8,10 +9,10 @@
   align-items: center;
   padding-inline-end: 4rem;
   margin-block-start: 4rem;
-}
 
-.step3 > .form-button {
-  padding-inline-end: unset;
+  @include mq($until: medium) {
+    padding-inline-end: unset;
+  }
 }
 
 .nextstep {
