@@ -8,7 +8,9 @@ const planOptions = document.querySelectorAll(".option")
 const yearlyDeal = document.querySelectorAll(".yearlydeal")
 
 document.querySelector("form").addEventListener('click', function(e) {
-  e.preventDefault()
+  if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")) {
+    e.preventDefault()
+  }
   console.log(e.target)
 
 
@@ -27,6 +29,7 @@ document.querySelector("form").addEventListener('click', function(e) {
         formButton[1].classList.add("active")
       }
     } else if (formStep2.classList.contains("active")) {
+
       formStep2.classList.remove("active")
       formStep3.classList.add("active")
 
@@ -38,6 +41,23 @@ document.querySelector("form").addEventListener('click', function(e) {
       for (let i = 0; i < formButton.length; i++) {
         formButton[1].classList.remove("active")
         formButton[2].classList.add("active")
+      }
+
+      let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
+      const addonPrice = document.querySelectorAll(".add-on__price")
+
+      if (yearPlanSelected) {
+        for (let i = 0; i < addonPrice.length; i++) {
+          addonPrice[0].textContent = "+10/yr"
+          addonPrice[1].textContent = "+20/yr"
+          addonPrice[2].textContent = "+20/yr"
+        }
+      } else {
+        for (let i = 0; i < addonPrice.length; i++) {
+          addonPrice[0].textContent = "+1/mo"
+          addonPrice[1].textContent = "+2/mo"
+          addonPrice[2].textContent = "+2/mo"
+        }
       }
     }
   }
