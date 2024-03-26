@@ -9,7 +9,10 @@ body {
 
 h1,
 h2,
-label {
+label,
+.monthly.active,
+.yearly.active,
+.yearlydeal {
   color: var(--clr-primary-marine-blue);
 }
 
@@ -21,45 +24,49 @@ label {
   font-size: 1.6rem;
 }
 
-.step__desc {
+.step__box > :first-child,
+.yearlydeal {
+  font-size: .8rem;
+}
+
+.step__desc,
+.step__box > :last-child {
   font-size: .95rem;
 }
 
-.step__box > :first-child {
-  font-size: .8rem;
+.step__box > :first-child,
+.plan-switch,
+.option__price {
   color: var(--clr-neutral-cool-gray);
 }
 
 .step__box > :last-child {
-  font-size: .95rem;
   color: white;
 }
 
-.step__box > p {
+.step__box > p,
+.yearlydeal {
   font-weight: 600;
 }
 
 .plan-switch {
   font-size: .85rem;
   font-weight: 700;
-  color: var(--clr-neutral-cool-gray);
-}
-
-.monthly.active,
-.yearly.active,
-.yearlydeal {
-  color: var(--clr-primary-marine-blue);
 }
 
 .yearlydeal {
   font-size: .8rem;
-  font-weight: 600;
 }
 
 
 .option__price {
   font-size: .9rem;
   font-weight: 600;
-  color: var(--clr-neutral-cool-gray);
+}
+
+.add-on__info {
+  h2 {
+    font-size: 1.1rem;
+  }
 }
 
