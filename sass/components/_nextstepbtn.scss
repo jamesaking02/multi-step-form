@@ -10,6 +10,10 @@
   margin-block-start: 4rem;
 }
 
+.step3 > .form-button {
+  padding-inline-end: unset;
+}
+
 .nextstep {
   display: flex;
   background-color: var(--clr-primary-marine-blue);
