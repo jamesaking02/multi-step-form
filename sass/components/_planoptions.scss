@@ -5,13 +5,16 @@
   overflow-wrap: break-word;
   hyphens: auto;
   
+  h2,
+  .option__price,
+  .yearlydeal,
+  svg {
+    pointer-events: none;
+  }
+
   h2 {
     font-size: 1rem;
     margin-block-start: 2rem;
-  }
-
-  .option__price {
-    font-size: .9rem;
   }
 
   .option {
