@@ -1,0 +1,52 @@
+@use '../utilities/' as *;
+
+aside {
+  background-image: url(../../assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1.5rem;
+  border-radius: .5rem;
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .step__number {
+    border: 1px solid var(--clr-primary-light-blue);
+    padding: .25rem .75rem;
+    border-radius: 50%;
+    color: white;
+    font-weight: 500;
+  }
+
+  .step__number.active {
+    background-color: var(--clr-primary-light-blue);
+    color: var(--clr-primary-marine-blue);
+  }
+
+  .step__box {
+    margin-block: .5rem;
+  }
+
+  .step__box > :first-child {
+    margin-block-end: -.25rem;
+  }
+
+  @include mq($until: medium) {
+    background-image: url(../../assets/images/bg-sidebar-mobile.svg);
+    min-block-size: 10rem;
+    border-radius: unset;
+    ol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .step__box {
+      display: none;
+    }
+  }
+}
