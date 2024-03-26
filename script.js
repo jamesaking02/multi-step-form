@@ -11,24 +11,38 @@ document.querySelector("form").addEventListener('click', function(e) {
   e.preventDefault()
   console.log(e.target)
 
-  switch (e.target) {
-    case this.querySelector(".nextstep"):
-      if (formStep1.classList.contains("active")) {
-        formStep1.classList.remove("active")
-        formStep2.classList.add("active")
 
-        for (let i = 0; i < asideSteps.length; i++) {
-          asideSteps[0].classList.remove("active")
-          asideSteps[1].classList.add("active")
-        }
+  if (e.target.classList.contains("nextstep")) {
+    if (formStep1.classList.contains("active")) {
+      formStep1.classList.remove("active")
+      formStep2.classList.add("active")
 
-        for (let i = 0; i < formButton.length; i++) {
-          formButton[0].classList.remove("active")
-          formButton[1].classList.add("active")
-        }
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[0].classList.remove("active")
+        asideSteps[1].classList.add("active")
       }
-      break;
-    case this.querySelector(".goback"):
+
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[0].classList.remove("active")
+        formButton[1].classList.add("active")
+      }
+    } else if (formStep2.classList.contains("active")) {
+      formStep2.classList.remove("active")
+      formStep3.classList.add("active")
+
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[1].classList.remove("active")
+        asideSteps[2].classList.add("active")
+      }
+
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[1].classList.remove("active")
+        formButton[2].classList.add("active")
+      }
+    }
+  }
+  
+    if (e.target.classList.contains("goback")) {
       if (formStep2.classList.contains("active")) {
         formStep1.classList.add("active")
         formStep2.classList.remove("active")
@@ -42,8 +56,20 @@ document.querySelector("form").addEventListener('click', function(e) {
           formButton[0].classList.add("active")
           formButton[1].classList.remove("active")
         }
+      } else if (formStep3.classList.contains("active")) {
+        formStep2.classList.add("active")
+        formStep3.classList.remove("active")
+
+        for (let i = 0; i < asideSteps.length; i++) {
+          asideSteps[1].classList.add("active")
+          asideSteps[2].classList.remove("active")
+        }
+
+        for (let i = 0; i < formButton.length; i++) {
+          formButton[1].classList.add("active")
+          formButton[2].classList.remove("active")
+        }
       }
-      break;
   }
 
   if (e.target.classList.contains("option")) {
@@ -63,18 +89,34 @@ document.querySelector("form").addEventListener('click', function(e) {
     })
   }
 
+  const optionPrice = document.querySelectorAll(".option__price")
+
   if (e.target.classList.contains("switch")) {
     this.querySelector(".switch__circle").classList.toggle("yearlyplan")
     if (this.querySelector(".switch__circle").classList.contains("yearlyplan")) {
       this.querySelector(".monthly").classList.remove("active")
       this.querySelector(".yearly").classList.add("active")
 
+      for (let i = 0; i < optionPrice.length; i++) {
+        optionPrice[0].textContent = "$90/yr"
+        optionPrice[1].textContent = "$120/yr"
+        optionPrice[2].textContent = "$150/yr"
+      }
+
       yearlyDeal.forEach((deal) => {
         deal.classList.add("visible")
       })
+
+
     } else {
       this.querySelector(".monthly").classList.add("active")
       this.querySelector(".yearly").classList.remove("active")
+
+      for (let i = 0; i < optionPrice.length; i++) {
+        optionPrice[0].textContent = "$9/mo"
+        optionPrice[1].textContent = "$12/mo"
+        optionPrice[2].textContent = "$15/mo"
+      }
 
       yearlyDeal.forEach((deal) => {
         deal.classList.remove("visible")
