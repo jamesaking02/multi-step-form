@@ -8,7 +8,7 @@ const planOptions = document.querySelectorAll(".option")
 const yearlyDeal = document.querySelectorAll(".yearlydeal")
 
 document.querySelector("form").addEventListener('click', function(e) {
-  if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")) {
+  if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")) { // allows checkboxes to be checked still
     e.preventDefault()
   }
   console.log(e.target)
