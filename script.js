@@ -8,7 +8,8 @@ const planOptions = document.querySelectorAll(".option")
 const yearlyDeal = document.querySelectorAll(".yearlydeal")
 
 document.querySelector("form").addEventListener('click', function(e) {
-  if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")) { // allows checkboxes to be checked still
+  if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")
+  || e.target.classList.contains("switch")) { // allows checkboxes to be checked still
     e.preventDefault()
   }
   console.log(e.target)
@@ -143,6 +144,19 @@ document.querySelector("form").addEventListener('click', function(e) {
       })
     }
   }
+
+  const addOns = document.querySelectorAll(".add-on")
+
+  addOns.forEach((addOn) => {
+    addOn.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        e.target.parentElement.parentElement.classList.add("checked")
+      } else {
+        e.target.parentElement.parentElement.classList.remove("checked")
+      }
+    })
+    
+  })
 })
 
 
