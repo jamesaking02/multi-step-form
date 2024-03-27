@@ -17,6 +17,7 @@ document.querySelector("form").addEventListener('click', function(e) {
 
   if (e.target.classList.contains("nextstep")) {
     nextStep()
+    createSummary()
   } else if (e.target.classList.contains("goback")) {
     goBack()
   }
@@ -214,4 +215,48 @@ function goBack() {
       formButton[3].classList.remove("active")
     }
   }
+}
+
+function createSummary() {
+  const summaryPlanType = document.querySelector(".plan-type")
+  const summaryPlanPrice = document.querySelector(".plan-price")
+  let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
+
+  planOptions.forEach((option) => {
+    if (option.classList.contains("selected") && yearPlanSelected) {
+      if (option.dataset.planOption === "arcade") {
+
+        summaryPlanType.textContent = "Arcade (Yearly)"
+        summaryPlanPrice.textContent = "$90/mo"
+
+      } else if (option.dataset.planOption === "advanced") {
+
+        summaryPlanType.textContent = "Advanced (Yearly)"
+        summaryPlanPrice.textContent = "$120/mo"
+
+      } else if (option.dataset.planOption === "pro") {
+
+        summaryPlanType.textContent = "Pro (Yearly)"
+        summaryPlanPrice.textContent = "$150/mo"
+
+      }
+    } else if (option.classList.contains("selected")) {
+      if (option.dataset.planOption === "arcade") {
+
+        summaryPlanType.textContent = "Arcade (Monthly)"
+        summaryPlanPrice.textContent = "$9/mo"
+
+      } else if (option.dataset.planOption === "advanced") {
+
+        summaryPlanType.textContent = "Advanced (Monthly)"
+        summaryPlanPrice.textContent = "$12/mo"
+
+      } else if (option.dataset.planOption === "pro") {
+
+        summaryPlanType.textContent = "Pro (Monthly)"
+        summaryPlanPrice.textContent = "$15/mo"
+
+      }
+    } 
+  })
 }
