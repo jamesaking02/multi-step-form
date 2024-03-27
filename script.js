@@ -17,6 +17,7 @@ document.querySelector("form").addEventListener('click', function(e) {
 
   if (e.target.classList.contains("nextstep")) {
     if (formStep1.classList.contains("active")) {
+
       formStep1.classList.remove("active")
       formStep2.classList.add("active")
 
@@ -59,6 +60,20 @@ document.querySelector("form").addEventListener('click', function(e) {
           addonPrice[1].textContent = "+2/mo"
           addonPrice[2].textContent = "+2/mo"
         }
+      }
+    } else if (formStep3.classList.contains("active")) {
+        
+      formStep3.classList.remove("active")
+      formStep4.classList.add("active")
+
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[2].classList.remove("active")
+        asideSteps[3].classList.add("active")
+      }
+
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[2].classList.remove("active")
+        formButton[3].classList.add("active")
       }
     }
   }
@@ -157,6 +172,23 @@ document.querySelector("form").addEventListener('click', function(e) {
     })
     
   })
+
+  if (e.target.classList.contains("change-plan")) {
+
+    formStep4.classList.remove("active")
+    formStep2.classList.add("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[3].classList.remove("active")
+      asideSteps[1].classList.add("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[3].classList.remove("active")
+      formButton[1].classList.add("active")
+    }
+  }
+
 })
 
 
