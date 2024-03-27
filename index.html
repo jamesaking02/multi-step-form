@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./stylesheet/main.css">
   <title>Frontend Mentor | Multi-step form</title>
-
+  <script src="script.js" defer></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -21,31 +21,31 @@
     <aside>
       <ol>
         <li class="step">
-          <p class="step__number">1</p>
+          <p class="step__number active">1</p>
           <div class="step__box">
-            Step 1
-            Your info
+            <p>STEP 1</p>
+            <p>YOUR INFO</p> 
           </div>
         </li>
         <li class="step">
           <p class="step__number">2</p>
           <div class="step__box">
-            Step 2
-            Select plan
+            <p>STEP 2</p>
+            <p>SELECT PLAN</p> 
           </div>
         </li>
         <li class="step">
           <p class="step__number">3</p>
           <div class="step__box">
-            Step 3
-            Add-ons
+            <p>STEP 3</p>
+            <p>ADD-ONS</p>
           </div>
         </li>
         <li class="step">
           <p class="step__number">4</p>
           <div class="step__box">
-            Step 4
-            Summary
+            <p>STEP 4</p>
+            <p>SUMMARY</p> 
           </div>
         </li>
       </ol>
@@ -54,32 +54,42 @@
     
     <form action="">
       <!-- Step 1 start -->
-      <section class="step1">
+      <section class="step1 form-step active">
         <h1 class="step__heading">Personal info</h1>
         <p class="step__desc">Please provide your name, email address, and phone number.</p>
 
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="e.g. Stephen King">
-
+        <div class="input-box">
+          <input type="text" id="name" placeholder="e.g. Stephen King">
+        </div>
+        
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
-
+        <div class="input-box">
+          <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
+        </div>
+        
         <label for="phonenum">Phone Number</label>
-        <input type="tel" id="phonenum" placeholder="e.g. +1 234 567 890">
+        <div class="input-box">
+          <input type="tel" id="phonenum" placeholder="e.g. +1 234 567 890">
+        </div>
+        
+        
+      </section>
 
-        <button class="nextstep">
+      <div class="form-button active">
+        <button class="nextstep step1__nextstep">
           Next Step
         </button>
-      </section>
+      </div>
       <!-- Step 1 end -->
 
       <!-- Step 2 start -->
-      <section class="step2">
+      <section class="step2 form-step">
         <h1 class="step__heading">Select your plan</h1>
         <p class="step__desc">You have the option of monthly or yearly billing.</p>
 
-        <article class="plan-options">
-          <div class="option">
+        <article class="plan-options" id="plan-options">
+          <div class="option" data-plan-option="arcade">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
               <g fill="none" fill-rule="evenodd">
                 <circle cx="20" cy="20" r="20" fill="#FFAF7E" />
@@ -89,20 +99,20 @@
             </svg>
             <h2>Arcade</h2>
             <p class="option__price">$9/mo</p>
-            <p class="yearlydeal"></p>
+            <p class="yearlydeal">2 months free</p>
           </div>
-          <div class="option">
+          <div class="option" data-plan-option="advanced">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
               <g fill="none" fill-rule="evenodd">
                 <circle cx="20" cy="20" r="20" fill="#F9818E" />
                 <path fill="#FFF" fill-rule="nonzero"
                   d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z" />
               </g></svg>
-            <h2>Advanced</h2>
+            <h2>Advan&shy;ced</h2>
             <p class="option__price">$12/mo</p>
-            <p class="yearlydeal"></p>
+            <p class="yearlydeal">2 months free</p>
           </div>
-          <div class="option">
+          <div class="option" data-plan-option="pro">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
               <g fill="none" fill-rule="evenodd">
                 <circle cx="20" cy="20" r="20" fill="#483EFF" />
@@ -112,50 +122,52 @@
             </svg>
             <h2>Pro</h2>
             <p class="option__price">$15/mo</p>
-            <p class="yearlydeal"></p>
+            <p class="yearlydeal">2 months free</p>
           </div>
         </article>
 
         <article class="plan-switch">
-          <p class="monthly">Monthly</p>
-          <button class="switch" title="plan switch">
+          <p class="monthly active">Monthly</p>
+          <button class="switch" title="plan switch" data-plan-type="monthly">
             <div class="switch__circle"></div>
           </button>
           <p class="yearly">Yearly</p>
         </article>
         
 
+      </section>
+      <div class="form-button">
         <button class="goback">
           Go Back
         </button>
         <button class="nextstep">
           Next Step
         </button>
-      </section>
+      </div>
       <!-- Step 2 end -->
 
       <!-- Step 3 start -->
-      <section class="step3">
+      <section class="step3 form-step">
         <h1 class="step__heading">Pick add-ons</h1>
         <p class="step__desc">Add-ons help enhance your gaming experience.</p>
 
         <article class="add-ons">
           <div class="add-on">
             <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <label for=""></label>
+              <input type="checkbox" name="addon" id="addon1">
+              <label for="addon1"></label>
             </div>
             <div class="add-on__info">
               <h2>Online service</h2>
-              <p>Access to multiplayer</p>
+              <p>Access to multiplayer games</p>
             </div>
 
             <p class="add-on__price">+$1/mo</p>
           </div>
           <div class="add-on">
             <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <label for=""></label>
+              <input type="checkbox" name="addon" id="addon2">
+              <label for="addon2"></label>
             </div>
             <div class="add-on__info">
               <h2>Larger storage</h2>
@@ -166,8 +178,8 @@
           </div>
           <div class="add-on">
             <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <label for=""></label>
+              <input type="checkbox" name="addon" id="addon3">
+              <label for="addon3"></label>
             </div>
             <div class="add-on__info">
               <h2>Customizable profile</h2>
@@ -177,46 +189,60 @@
             <p class="add-on__price">+$2/mo</p>
           </div>
         </article>
-
+        
+        
+      </section>
+      <div class="form-button">
         <button class="goback">
           Go Back
         </button>
-        <button class="nextstep">
+        <button class="nextstep ">
           Next Step
         </button>
-      </section>
+      </div>
       <!-- Step 3 end -->
 
       <!-- Step 4 start -->
-      <section class="step4">
+      <section class="step4 form-step ">
         <h1 class="step__heading">Finishing up</h1>
         <p class="step__desc">Double-check everything looks OK before confirming.</p>
 
         <article class="summary">
-          
+          <div class="plan-info">
+            <div>
+              <p class="plan-type"></p>
+              <a href="#plan-options" class="change-plan">Change</a>
+            </div>
+            <p class="plan-price"></p>
+          </div>
+          <div class="plan-total">
+            <p class="total"></p>
+          </div>
         </article>
         
+      </section>
+      <div class="form-button">
         <button class="goback">
           Go Back
         </button>
         <button class="confirm">
           Confirm
         </button>
-      </section>
+      </div>
     </form>
 
     <!-- Dynamically add subscription and add-on selections here -->
 
-    Total (per month/year)
+    <!-- Total (per month/year) -->
 
 
     <!-- Step 5 start -->
 
-    Thank you!
+    <!-- Thank you!
 
     Thanks for confirming your subscription! We hope you have fun 
     using our platform. If you ever need support, please feel free 
-    to email us at support@loremgaming.com.
+    to email us at support@loremgaming.com. -->
 
     <!-- Step 5 end -->
     </div>
