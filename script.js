@@ -16,97 +16,12 @@ document.querySelector("form").addEventListener('click', function(e) {
 
 
   if (e.target.classList.contains("nextstep")) {
-    if (formStep1.classList.contains("active")) {
-
-      formStep1.classList.remove("active")
-      formStep2.classList.add("active")
-
-      for (let i = 0; i < asideSteps.length; i++) {
-        asideSteps[0].classList.remove("active")
-        asideSteps[1].classList.add("active")
-      }
-
-      for (let i = 0; i < formButton.length; i++) {
-        formButton[0].classList.remove("active")
-        formButton[1].classList.add("active")
-      }
-    } else if (formStep2.classList.contains("active")) {
-
-      formStep2.classList.remove("active")
-      formStep3.classList.add("active")
-
-      for (let i = 0; i < asideSteps.length; i++) {
-        asideSteps[1].classList.remove("active")
-        asideSteps[2].classList.add("active")
-      }
-
-      for (let i = 0; i < formButton.length; i++) {
-        formButton[1].classList.remove("active")
-        formButton[2].classList.add("active")
-      }
-
-      let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
-      const addonPrice = document.querySelectorAll(".add-on__price")
-
-      if (yearPlanSelected) {
-        for (let i = 0; i < addonPrice.length; i++) {
-          addonPrice[0].textContent = "+10/yr"
-          addonPrice[1].textContent = "+20/yr"
-          addonPrice[2].textContent = "+20/yr"
-        }
-      } else {
-        for (let i = 0; i < addonPrice.length; i++) {
-          addonPrice[0].textContent = "+1/mo"
-          addonPrice[1].textContent = "+2/mo"
-          addonPrice[2].textContent = "+2/mo"
-        }
-      }
-    } else if (formStep3.classList.contains("active")) {
-        
-      formStep3.classList.remove("active")
-      formStep4.classList.add("active")
-
-      for (let i = 0; i < asideSteps.length; i++) {
-        asideSteps[2].classList.remove("active")
-        asideSteps[3].classList.add("active")
-      }
-
-      for (let i = 0; i < formButton.length; i++) {
-        formButton[2].classList.remove("active")
-        formButton[3].classList.add("active")
-      }
-    }
+    nextStep()
+  } else if (e.target.classList.contains("goback")) {
+    goBack()
   }
   
-    if (e.target.classList.contains("goback")) {
-      if (formStep2.classList.contains("active")) {
-        formStep1.classList.add("active")
-        formStep2.classList.remove("active")
-
-        for (let i = 0; i < asideSteps.length; i++) {
-          asideSteps[0].classList.add("active")
-          asideSteps[1].classList.remove("active")
-        }
-
-        for (let i = 0; i < formButton.length; i++) {
-          formButton[0].classList.add("active")
-          formButton[1].classList.remove("active")
-        }
-      } else if (formStep3.classList.contains("active")) {
-        formStep2.classList.add("active")
-        formStep3.classList.remove("active")
-
-        for (let i = 0; i < asideSteps.length; i++) {
-          asideSteps[1].classList.add("active")
-          asideSteps[2].classList.remove("active")
-        }
-
-        for (let i = 0; i < formButton.length; i++) {
-          formButton[1].classList.add("active")
-          formButton[2].classList.remove("active")
-        }
-      }
-  }
+    
 
   if (e.target.classList.contains("option")) {
     planOptions.forEach((option) => {
@@ -192,3 +107,111 @@ document.querySelector("form").addEventListener('click', function(e) {
 })
 
 
+function nextStep() {
+  if (formStep1.classList.contains("active")) {
+
+    formStep1.classList.remove("active")
+    formStep2.classList.add("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[0].classList.remove("active")
+      asideSteps[1].classList.add("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[0].classList.remove("active")
+      formButton[1].classList.add("active")
+    }
+  } else if (formStep2.classList.contains("active")) {
+
+    formStep2.classList.remove("active")
+    formStep3.classList.add("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[1].classList.remove("active")
+      asideSteps[2].classList.add("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[1].classList.remove("active")
+      formButton[2].classList.add("active")
+    }
+
+    let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
+    const addonPrice = document.querySelectorAll(".add-on__price")
+
+    if (yearPlanSelected) {
+      for (let i = 0; i < addonPrice.length; i++) {
+        addonPrice[0].textContent = "+10/yr"
+        addonPrice[1].textContent = "+20/yr"
+        addonPrice[2].textContent = "+20/yr"
+      }
+    } else {
+      for (let i = 0; i < addonPrice.length; i++) {
+        addonPrice[0].textContent = "+1/mo"
+        addonPrice[1].textContent = "+2/mo"
+        addonPrice[2].textContent = "+2/mo"
+      }
+    }
+  } else if (formStep3.classList.contains("active")) {
+      
+    formStep3.classList.remove("active")
+    formStep4.classList.add("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[2].classList.remove("active")
+      asideSteps[3].classList.add("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[2].classList.remove("active")
+      formButton[3].classList.add("active")
+    }
+  }
+}
+
+function goBack() {
+  if (formStep2.classList.contains("active")) {
+
+    formStep1.classList.add("active")
+    formStep2.classList.remove("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[0].classList.add("active")
+      asideSteps[1].classList.remove("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[0].classList.add("active")
+      formButton[1].classList.remove("active")
+    }
+  } else if (formStep3.classList.contains("active")) {
+
+    formStep2.classList.add("active")
+    formStep3.classList.remove("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[1].classList.add("active")
+      asideSteps[2].classList.remove("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[1].classList.add("active")
+      formButton[2].classList.remove("active")
+    }
+  } else if (formStep4.classList.contains("active")) {
+
+    formStep3.classList.add("active")
+    formStep4.classList.remove("active")
+
+    for (let i = 0; i < asideSteps.length; i++) {
+      asideSteps[2].classList.add("active")
+      asideSteps[3].classList.remove("active")
+    }
+
+    for (let i = 0; i < formButton.length; i++) {
+      formButton[2].classList.add("active")
+      formButton[3].classList.remove("active")
+    }
+  }
+}
