@@ -57,18 +57,26 @@
       <section class="step1 form-step active">
         <h1 class="step__heading">Personal info</h1>
         <p class="step__desc">Please provide your name, email address, and phone number.</p>
-
-        <label for="name">Name</label>
+        <div class="label-box">
+          <label for="name">Name</label>
+          <p class="invalid invalid-name">Please enter a name</p>
+        </div>
         <div class="input-box">
           <input type="text" id="name" placeholder="e.g. Stephen King">
         </div>
         
-        <label for="email">Email Address</label>
+        <div class="label-box">
+          <label for="email">Email Address</label>
+          <p class="invalid invalid-email">Please enter a valid email</p>
+        </div>
         <div class="input-box">
           <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
         </div>
         
-        <label for="phonenum">Phone Number</label>
+        <div class="label-box">
+          <label for="phonenum">Phone Number</label>
+          <p class="invalid invalid-phonenum">Please enter a valid phone number</p>
+        </div>
         <div class="input-box">
           <input type="tel" id="phonenum" placeholder="e.g. +1 234 567 890">
         </div>
@@ -88,6 +96,7 @@
         <h1 class="step__heading">Select your plan</h1>
         <p class="step__desc">You have the option of monthly or yearly billing.</p>
 
+        <p class="invalid invalid-option">Please select a plan</p>
         <article class="plan-options" id="plan-options">
           <div class="option" data-plan-option="arcade">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
@@ -158,11 +167,11 @@
               <label for="addon1"></label>
             </div>
             <div class="add-on__info">
-              <h2>Online service</h2>
+              <h2 id="addon1__name">Online service</h2>
               <p>Access to multiplayer games</p>
             </div>
 
-            <p class="add-on__price">+$1/mo</p>
+            <p class="add-on__price" id="addon1__price">+$1/mo</p>
           </div>
           <div class="add-on" data-addon-type="larger storage">
             <div class="checkbox">
@@ -170,7 +179,7 @@
               <label for="addon2"></label>
             </div>
             <div class="add-on__info">
-              <h2>Larger storage</h2>
+              <h2 id="addon2__name">Larger storage</h2>
               <p>Extra 1TB of cloud save</p>
             </div>
 
@@ -182,7 +191,7 @@
               <label for="addon3"></label>
             </div>
             <div class="add-on__info">
-              <h2>Customizable profile</h2>
+              <h2 id="addon3__name">Customizable profile</h2>
               <p>Custom theme on your profile</p>
             </div>
 
@@ -214,6 +223,21 @@
               <a href="#plan-options" class="change-plan">Change</a>
             </div>
             <p class="plan-price"></p>
+          </div>
+          <hr>
+          <div class="summary__add-ons">
+            <div class="summary__add-on" id="summary__addon1">
+              <p class="summary-add-on__name"></p>
+              <p class="summary-add-on__price"></p>
+            </div>
+            <div class="summary__add-on" id="summary__addon2">
+              <p class="summary-add-on__name"></p>
+              <p class="summary-add-on__price"></p>
+            </div>
+            <div class="summary__add-on" id="summary__addon3">
+              <p class="summary-add-on__name"></p>
+              <p class="summary-add-on__price"></p>
+            </div>
           </div>
           <div class="plan-total">
             <p class="total"></p>
