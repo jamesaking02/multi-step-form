@@ -6,6 +6,7 @@ const formButton = document.querySelectorAll(".form-button")
 const asideSteps = document.querySelectorAll(".step__number")
 const planOptions = document.querySelectorAll(".option")
 const yearlyDeal = document.querySelectorAll(".yearlydeal")
+const addOns = document.querySelectorAll(".add-on")
 
 document.querySelector("form").addEventListener('click', function(e) {
   if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")
@@ -76,7 +77,7 @@ document.querySelector("form").addEventListener('click', function(e) {
     }
   }
 
-  const addOns = document.querySelectorAll(".add-on")
+  
 
   addOns.forEach((addOn) => {
     addOn.addEventListener('change', (e) => {
@@ -107,68 +108,135 @@ document.querySelector("form").addEventListener('click', function(e) {
 
 })
 
+function validation() {
+  let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-function nextStep() {
   if (formStep1.classList.contains("active")) {
-
-    formStep1.classList.remove("active")
-    formStep2.classList.add("active")
-
-    for (let i = 0; i < asideSteps.length; i++) {
-      asideSteps[0].classList.remove("active")
-      asideSteps[1].classList.add("active")
-    }
-
-    for (let i = 0; i < formButton.length; i++) {
-      formButton[0].classList.remove("active")
-      formButton[1].classList.add("active")
-    }
-  } else if (formStep2.classList.contains("active")) {
-
-    formStep2.classList.remove("active")
-    formStep3.classList.add("active")
-
-    for (let i = 0; i < asideSteps.length; i++) {
-      asideSteps[1].classList.remove("active")
-      asideSteps[2].classList.add("active")
-    }
-
-    for (let i = 0; i < formButton.length; i++) {
-      formButton[1].classList.remove("active")
-      formButton[2].classList.add("active")
-    }
-
-    let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
-    const addonPrice = document.querySelectorAll(".add-on__price")
-
-    if (yearPlanSelected) {
-      for (let i = 0; i < addonPrice.length; i++) {
-        addonPrice[0].textContent = "+10/yr"
-        addonPrice[1].textContent = "+20/yr"
-        addonPrice[2].textContent = "+20/yr"
-      }
+    let noName = document.querySelector("#name").value === ""
+    if (!noName) {
+      document.querySelector(".invalid-name").classList.remove("active")
     } else {
-      for (let i = 0; i < addonPrice.length; i++) {
-        addonPrice[0].textContent = "+1/mo"
-        addonPrice[1].textContent = "+2/mo"
-        addonPrice[2].textContent = "+2/mo"
+      document.querySelector(".invalid-name").classList.add("active")
+      return false
+    }
+
+    let email = document.querySelector("#email").value
+
+    if (!emailRegex.test(email)) {
+      document.querySelector(".invalid-email").classList.add("active")
+      return false
+    } else {
+      document.querySelector(".invalid-email").classList.remove("active")
+    }
+
+
+    let noNumber = document.querySelector("#phonenum").value === ""
+    let number = document.querySelector("#phonenum").value
+    if (noNumber) {
+      document.querySelector(".invalid-phonenum").classList.add("active")
+      document.querySelector(".invalid-phonenum").textContent = "This field is required"
+      return false
+    } else if (!phoneRegex.test(number)) {
+      document.querySelector(".invalid-phonenum").classList.add("active")
+      document.querySelector(".invalid-phonenum").textContent = "Please enter a valid phone number"
+      return false
+    } else {
+      document.querySelector(".invalid-phonenum").classList.remove("active")
+    }
+    
+    return true
+  }
+
+  
+  let isSelected = false
+  if (formStep2.classList.contains("active")) {
+    planOptions.forEach((option) => {
+      if (option.classList.contains("selected")) {
+        isSelected = true
       }
-    }
-  } else if (formStep3.classList.contains("active")) {
-      
-    formStep3.classList.remove("active")
-    formStep4.classList.add("active")
+    })
 
-    for (let i = 0; i < asideSteps.length; i++) {
-      asideSteps[2].classList.remove("active")
-      asideSteps[3].classList.add("active")
-    }
-
-    for (let i = 0; i < formButton.length; i++) {
-      formButton[2].classList.remove("active")
-      formButton[3].classList.add("active")
+    if (!isSelected) {
+      document.querySelector(".invalid-option").classList.add("active")
+      return false
+    } else {
+      document.querySelector(".invalid-option").classList.remove("active")
+      return true
     }
   }
+  
+  if (formStep3.classList.contains("active")) {
+    return true
+  }
+}
+
+function nextStep() {
+  if (!validation()) {
+    return
+  } else {
+    if (formStep1.classList.contains("active")) {
+
+      formStep1.classList.remove("active")
+      formStep2.classList.add("active")
+  
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[0].classList.remove("active")
+        asideSteps[1].classList.add("active")
+      }
+  
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[0].classList.remove("active")
+        formButton[1].classList.add("active")
+      }
+    } else if (formStep2.classList.contains("active")) {
+  
+      formStep2.classList.remove("active")
+      formStep3.classList.add("active")
+  
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[1].classList.remove("active")
+        asideSteps[2].classList.add("active")
+      }
+  
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[1].classList.remove("active")
+        formButton[2].classList.add("active")
+      }
+  
+      let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
+      const addonPrice = document.querySelectorAll(".add-on__price")
+  
+      if (yearPlanSelected) {
+        for (let i = 0; i < addonPrice.length; i++) {
+          addonPrice[0].textContent = "+10/yr"
+          addonPrice[1].textContent = "+20/yr"
+          addonPrice[2].textContent = "+20/yr"
+        }
+      } else {
+        for (let i = 0; i < addonPrice.length; i++) {
+          addonPrice[0].textContent = "+1/mo"
+          addonPrice[1].textContent = "+2/mo"
+          addonPrice[2].textContent = "+2/mo"
+        }
+      }
+    } else if (formStep3.classList.contains("active")) {
+        
+      formStep3.classList.remove("active")
+      formStep4.classList.add("active")
+  
+      for (let i = 0; i < asideSteps.length; i++) {
+        asideSteps[2].classList.remove("active")
+        asideSteps[3].classList.add("active")
+      }
+  
+      for (let i = 0; i < formButton.length; i++) {
+        formButton[2].classList.remove("active")
+        formButton[3].classList.add("active")
+      }
+    }
+  }
+  
 }
 
 function goBack() {
@@ -220,6 +288,7 @@ function goBack() {
 function createSummary() {
   const summaryPlanType = document.querySelector(".plan-type")
   const summaryPlanPrice = document.querySelector(".plan-price")
+  const summaryAddOns = document.querySelector(".summary__add-ons")
   let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
 
   planOptions.forEach((option) => {
@@ -259,4 +328,51 @@ function createSummary() {
       }
     } 
   })
+
+  addOns.forEach((addOn) => {
+    if (!addOn.classList.contains("checked")) {
+        const summaryAddon1 = document.querySelector("#summary__addon1")
+        const addOnName = document.querySelector("#addon1__name")
+
+        summaryAddon1.children[0].textContent = "No Add-ons"
+
+      } else {
+        addOns.forEach((addOn) => {
+          if (addOn.dataset.addonType === "online service") {
+            const summaryAddon1 = document.querySelector("#summary__addon1")
+            const addOnName = document.querySelector("#addon1__name")
+            const addOnPrice = document.querySelector("#addon1__price")
+            
+            summaryAddon1.children[0].textContent = addOnName.textContent
+            summaryAddon1.children[1].textContent = addOnPrice.textContent
+            
+          } else if (addOn.dataset.addonType === "larger storage") {
+            const summaryAddon2 = document.querySelector("#summary__addon2")
+            const addOnName = document.querySelector("#addon2__name")
+            
+            summaryAddon2.children[0].textContent = addOnName.textContent
+            summaryAddon2.children[1].textContent = "+2/mo"
+
+          } else if (addOn.dataset.addonType === "customizable profile") {
+            const summaryAddon2 = document.querySelector("#summary__addon3")
+            const addOnName = document.querySelector("#addon3__name")
+            
+            summaryAddon2.children[0].textContent = addOnName.textContent
+            summaryAddon2.children[1].textContent = "+2/mo"
+          }
+        })
+      }
+    })
 }
+
+// let addOn1 = document.createElement("p")
+// let addon1Price = document.createElement("p")
+// let addOn1Content = document.createTextNode("Online service")
+// let addOn1PriceContent = document.createTextNode("+$1/mo")
+
+// addOn1.appendChild(addOn1Content)
+// addon1Price.appendChild(addOn1PriceContent)
+
+
+// const summaryAddon1 = document.querySelector("#summary__addon1")
+// console.log(summaryAddon1.children[0])
