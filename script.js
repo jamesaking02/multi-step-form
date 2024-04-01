@@ -11,7 +11,7 @@ let checkedNum = 0
 
 document.querySelector("form").addEventListener('click', function(e) {
   if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")
-  || e.target.classList.contains("switch")) { // allows checkboxes to be checked still
+  || e.target.classList.contains("switch") || e.target.classList.contains("confirm")) { // allows checkboxes to be checked still
     e.preventDefault()
   }
   console.log(e.target)
@@ -81,6 +81,20 @@ document.querySelector("form").addEventListener('click', function(e) {
   
 
   addOns.forEach((addOn) => {
+    const addonCheckbox1 = document.querySelector("#addon1")
+    const addonCheckbox2 = document.querySelector("#addon2")
+    const addonCheckbox3 = document.querySelector("#addon3")
+
+    addonCheckbox1.checked ? addonCheckbox1.parentElement.parentElement.classList.add("checked")
+    : addonCheckbox1.parentElement.parentElement.classList.remove("checked")
+
+    addonCheckbox2.checked ? addonCheckbox2.parentElement.parentElement.classList.add("checked")
+    : addonCheckbox2.parentElement.parentElement.classList.remove("checked")
+
+    addonCheckbox3.checked ? addonCheckbox3.parentElement.parentElement.classList.add("checked")
+    : addonCheckbox3.parentElement.parentElement.classList.remove("checked")
+
+
     addOn.addEventListener('change', (e) => {
       e.target.checked ? e.target.parentElement.parentElement.classList.add("checked") 
       : e.target.parentElement.parentElement.classList.remove("checked")
@@ -415,7 +429,5 @@ addOns.forEach((addOn) => {
   yearPlanSelected ? total.textContent = `+$${totalPrice}/yr`
   : total.textContent = `+$${totalPrice}/mo` 
 })
-
-
     
 }
