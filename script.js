@@ -286,10 +286,9 @@ function goBack() {
 function createSummary() {
   const summaryPlanType = document.querySelector(".plan-type")
   const summaryPlanPrice = document.querySelector(".plan-price")
-  const summaryAddOnPrice = document.querySelectorAll(".summary-add-on__price")
   let yearPlanSelected = document.querySelector(".switch__circle").classList.contains("yearlyplan")
   const totalLabel = document.querySelector(".total-label")
-  const total = document.querySelector(".total").textContent
+  let total = document.querySelector(".total")
   let totalPrice = 0
   
   yearPlanSelected ? totalLabel.textContent = "Total (per year)" : totalLabel.textContent = "Total (per month)"
@@ -359,6 +358,12 @@ addOns.forEach((addOn) => {
     summaryAddon1.children[0].textContent = addOnName.textContent
     summaryAddon1.children[1].textContent = addOnPrice.textContent
 
+    let addOnPriceNum
+    yearPlanSelected ? addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 3))
+    : addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 2))
+    totalPrice += addOnPriceNum
+    console.log(totalPrice)
+
   } else if (addOn.dataset.addonType === "online service") {
     const summaryAddon1 = document.querySelector("#summary__addon1")
 
@@ -373,7 +378,13 @@ addOns.forEach((addOn) => {
           
     summaryAddon2.children[0].textContent = addOnName.textContent
     summaryAddon2.children[1].textContent = addOnPrice.textContent
-    
+
+    let addOnPriceNum
+    yearPlanSelected ? addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 3))
+    : addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 2))
+    totalPrice += addOnPriceNum
+    console.log(totalPrice)
+
   } else if (addOn.dataset.addonType === "larger storage") {
     const summaryAddon2 = document.querySelector("#summary__addon2")
 
@@ -388,7 +399,11 @@ addOns.forEach((addOn) => {
           
     summaryAddon3.children[0].textContent = addOnName.textContent
     summaryAddon3.children[1].textContent = addOnPrice.textContent
-
+    let addOnPriceNum
+    yearPlanSelected ? addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 3))
+    : addOnPriceNum = parseInt(addOnPrice.textContent.substring(1, 2))
+    totalPrice += addOnPriceNum
+    console.log(totalPrice)
 
   } else if (addOn.dataset.addonType === "customizable profile") {
     const summaryAddon3 = document.querySelector("#summary__addon3")
@@ -396,7 +411,11 @@ addOns.forEach((addOn) => {
     summaryAddon3.children[0].textContent = ""
     summaryAddon3.children[1].textContent = ""
   }
-    
+
+  yearPlanSelected ? total.textContent = `+$${totalPrice}/yr`
+  : total.textContent = `+$${totalPrice}/mo` 
 })
+
+
     
 }
