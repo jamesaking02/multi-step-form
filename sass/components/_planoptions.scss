@@ -1,3 +1,16 @@
+@use "../utilities/" as *;
+
+@include mq($from: medium) {
+  .option {
+    flex-direction: column;
+  }
+  .option {
+    h2 {
+      margin-block-start: 2rem;
+    }
+  }
+  
+}
 .plan-options {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5,6 +18,7 @@
   overflow-wrap: break-word;
   hyphens: auto;
   
+  div.option__info,
   h2,
   .option__price,
   .yearlydeal,
@@ -14,12 +28,11 @@
 
   h2 {
     font-size: 1rem;
-    margin-block-start: 2rem;
   }
 
   .option {
     display: flex;
-    flex-direction: column;
+    gap: 1rem;
     border: 1px solid var(--clr-neutral-light-gray);
     padding: 1rem;
     border-radius: .5rem;
@@ -37,7 +50,6 @@
     opacity: 0;
     bottom: 0;
     scale: 1 0;
-    pointer-events: none;
     transition: 
     opacity .5s ease,
     scale .3s ease;
@@ -50,3 +62,10 @@
     pointer-events: all;
   }
 } 
+
+@include mq($until: medium) {
+  .plan-options {
+    grid-template-columns: unset;
+  }
+  
+}
