@@ -2,6 +2,7 @@
 
 @include mq($until: medium) {
   form {
+    transform: translateY(-12%);
     padding: 1rem;
   }
 }
