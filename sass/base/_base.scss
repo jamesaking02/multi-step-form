@@ -1,4 +1,5 @@
 @use '../abstracts' as *;
+@use '../utilities/' as *;
 
 /* Base Styling */
 :root {
@@ -8,7 +9,6 @@
     }
   }
 }
-
 
 ol {
   list-style: none;
@@ -26,4 +26,9 @@ button {
 
 body {
   padding: 1rem;
+  background-color: var(--clr-neutral-light-gray);
+
+  @include mq($until: medium) {
+    padding: unset;
+  }
 }
