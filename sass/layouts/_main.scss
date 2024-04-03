@@ -3,12 +3,144 @@
 
 /* Layout Styling */
 
-main {
-  width: fit-content;
-  min-height: 100svh;
+@include mq($from: medium) {
+  main {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    place-content: center;
+  }
+}
+
+.box {
+  // position: relative;  
+  @include mq($from: medium) {
+    min-width: 50rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+  }
+}
+
+
+.form-step {
+  background-color: white;
+  border-radius: .5rem;
+  padding: 2.5rem 2rem;
+  @include mq($from: medium) {
+    padding: 2rem 4rem 0rem 0rem;
+  }
+}
+
+.form-step:not(.active),
+.form-button:not(.active) {
+  display: none;
+}
+
+.step__desc {
+  margin-block: .5rem 2rem;
+}
+
+.step1 > * + *:not(button, .invalid-name) {
+  margin-block: .5rem;
+}
+
+.step1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  input:not([type="checkbox"]) {
+    width: 100%;
+    border: none;
+  }
+  
+  input:not([type="checkbox"]):focus-visible {
+    outline: none;
+  }
+  
+  .input-box {
+    border: 1px solid var(--clr-neutral-light-gray);
+    border-radius: .5rem;
+    padding: .5rem;
+  }
+  
+  .input-box:has(input:focus-visible) {
+    border-color: var(--clr-primary-purplish-blue);
+  }
+  
+  .input-box:has(input:invalid) {
+    border-color: var(--clr-primary-strawberry-red);
+  }
+
+  .label-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+hr {
+  color: var(--clr-neutral-light-gray);
+  margin-block: 1rem;
+}
+
+.plan-info,
+.summary__add-on,
+.plan-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary__add-on{
+  margin-block: .5rem;
+}
+
+.plan-total {
+  margin-block-start: 2rem;
+}
+
+.invalid-name,
+.invalid-email,
+.invalid-phonenum,
+.invalid-option {
+  display: none;
+}
+
+.invalid-name.active,
+.invalid-email.active,
+.invalid-phonenum.active,
+.invalid-option.active {
+  display: block;
+}
+
+.step5 {
   display: grid;
   place-content: center;
-  margin: 0 auto;
+  text-align: center;
+  
+  
+  @include mq($from: medium) {
+    max-inline-size: 30rem;
+    transform: translateY(50%);
+  }
+
+  svg {
+    margin: 0 auto;
+  }
+
+  .step__heading {
+    margin-block: 1rem;
+  }
+
+  .step__desc {
+    margin: unset;
+  }
 }
 
 
