@@ -32,6 +32,7 @@
       height: 20px;
       border: 1px solid var(--clr-neutral-cool-gray);
       border-radius: .25rem;
+      transition: .3s all;
     }
 
     label::after {
@@ -48,6 +49,8 @@
       left: .45rem;
       top: .15rem;
       opacity: 0;
+      scale: 0 1;
+      transition: scale .3s ease-in-out;
     }
 
     input:checked + label::before {
@@ -56,6 +59,7 @@
     
     input:checked + label::after {
       opacity: 1;
+      scale: 1;
     }
   }
 }
