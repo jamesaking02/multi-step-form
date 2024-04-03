@@ -6,6 +6,10 @@ aside {
   background-size: cover;
   padding: 1.5rem;
   border-radius: .5rem;
+  @include mq($from: medium) {
+    width: 15rem;
+    height: 32rem;
+  }
 
   .step {
     display: flex;
@@ -19,6 +23,7 @@ aside {
     border-radius: 50%;
     color: white;
     font-weight: 500;
+    transition: .3s all;
   }
 
   .step__number.active {
