@@ -2,6 +2,7 @@ const formStep1 = document.querySelector(".step1")
 const formStep2 = document.querySelector(".step2")
 const formStep3 = document.querySelector(".step3")
 const formStep4 = document.querySelector(".step4")
+const formStep5 = document.querySelector(".step5")
 const formButton = document.querySelectorAll(".form-button")
 const asideSteps = document.querySelectorAll(".step__number")
 const planOptions = document.querySelectorAll(".option")
@@ -22,6 +23,13 @@ document.querySelector("form").addEventListener('click', function(e) {
     createSummary()
   } else if (e.target.classList.contains("goback")) {
     goBack()
+  } else if (e.target.classList.contains("confirm")) {
+    if (formStep4.classList.contains("active")) {
+      formStep4.classList.remove("active")
+      formStep5.classList.add("active")
+
+      formButton[3].classList.remove("active")
+    }
   }
   
     
