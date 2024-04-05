@@ -67,9 +67,11 @@
     border: 1px solid var(--clr-neutral-light-gray);
     border-radius: .5rem;
     padding: .5rem;
+    transition: border-color .3s ease;
   }
   
-  .input-box:has(input:focus-visible) {
+  .input-box:has(input:focus-visible),
+  .input-box:hover {
     border-color: var(--clr-primary-purplish-blue);
   }
   
