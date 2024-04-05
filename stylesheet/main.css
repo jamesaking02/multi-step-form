@@ -108,6 +108,7 @@ body {
 h1,
 h2,
 label,
+.goback:hover,
 .monthly.active,
 .yearly.active,
 .yearlydeal,
@@ -142,6 +143,7 @@ label {
 }
 .step__box > :first-child,
 .step__desc,
+.goback,
 .plan-switch,
 .option__price,
 .add-on__info > p,
@@ -157,6 +159,7 @@ label {
 }
 
 .step__box > p,
+.goback,
 .yearlydeal,
 .option__price,
 .invalid,
@@ -227,10 +230,15 @@ label {
   color: white;
   font-weight: 500;
   font-size: 0.95rem;
+  transition: opacity 0.3s ease;
 }
 
 .nextstep:hover {
   opacity: 0.8;
+}
+
+.goback {
+  transition: color 0.3s ease;
 }
 
 @media (min-width: 48em) {
@@ -267,8 +275,10 @@ label {
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  transition: border-color 0.3s ease;
 }
-.plan-options .option.selected {
+.plan-options .option.selected,
+.plan-options .option:hover {
   border-color: var(--clr-primary-purplish-blue);
 }
 .plan-options .yearlydeal {
@@ -337,6 +347,7 @@ label {
   border-radius: 0.5rem;
   margin-block: 1rem;
   padding: 1rem;
+  transition: border-color 0.3s ease;
 }
 .add-on .checkbox {
   margin-inline-end: 1rem;
@@ -386,7 +397,8 @@ label {
   scale: 1;
 }
 
-.add-on.checked {
+.add-on.checked,
+.add-on:hover {
   border-color: var(--clr-primary-purplish-blue);
 }
 
@@ -394,6 +406,11 @@ label {
   background-color: var(--clr-primary-purplish-blue);
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.confirm:hover {
+  opacity: 0.75;
 }
 
 /* Layout Styling */
@@ -457,8 +474,10 @@ label {
   border: 1px solid var(--clr-neutral-light-gray);
   border-radius: 0.5rem;
   padding: 0.5rem;
+  transition: border-color 0.3s ease;
 }
-.step1 .input-box:has(input:focus-visible) {
+.step1 .input-box:has(input:focus-visible),
+.step1 .input-box:hover {
   border-color: var(--clr-primary-purplish-blue);
 }
 .step1 .input-box:has(input:invalid) {
