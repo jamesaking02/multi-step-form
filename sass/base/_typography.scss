@@ -11,6 +11,7 @@ body {
 h1,
 h2,
 label,
+.goback:hover,
 .monthly.active,
 .yearly.active,
 .yearlydeal,
@@ -46,6 +47,7 @@ label {
 
 .step__box > :first-child,
 .step__desc,
+.goback,
 .plan-switch,
 .option__price,
 .add-on__info > p,
@@ -61,6 +63,7 @@ label {
 }
 
 .step__box > p,
+.goback,
 .yearlydeal,
 .option__price,
 .invalid,
