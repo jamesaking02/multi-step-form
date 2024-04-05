@@ -8,7 +8,6 @@ const asideSteps = document.querySelectorAll(".step__number")
 const planOptions = document.querySelectorAll(".option")
 const yearlyDeal = document.querySelectorAll(".yearlydeal")
 const addOns = document.querySelectorAll(".add-on")
-let checkedNum = 0
 
 document.querySelector("form").addEventListener('click', function(e) {
   if (e.target.classList.contains("nextstep") || e.target.classList.contains("goback")
