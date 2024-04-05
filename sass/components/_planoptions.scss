@@ -39,9 +39,11 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    transition: border-color .3s ease;
   }
 
-  .option.selected {
+  .option.selected,
+  .option:hover {
     border-color: var(--clr-primary-purplish-blue);
   }
 

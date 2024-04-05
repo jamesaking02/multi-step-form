@@ -6,6 +6,7 @@
   border-radius: .5rem;
   margin-block: 1rem;
   padding: 1rem;
+  transition: border-color .3s ease;
 
   .checkbox {
     margin-inline-end: 1rem;
@@ -64,6 +65,7 @@
   }
 }
 
-.add-on.checked {
+.add-on.checked,
+.add-on:hover {
   border-color: var(--clr-primary-purplish-blue);
 }
