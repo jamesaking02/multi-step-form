@@ -38,7 +38,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution](https://github.com/jamesaking02/multi-step-form)
-- Live Site URL: [Live Site](https://your-live-site-url.com)
+- Live Site URL: [Live Site](https://jamesaking02.github.io/multi-step-form/)
 
 ## My process
 
